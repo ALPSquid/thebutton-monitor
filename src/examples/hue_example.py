@@ -1,3 +1,5 @@
+# Example by kaloncheung124 (https://github.com/kaloncheung124/thebutton-monitor)
+
 from thebutton import TheButton
 from phue import Bridge
 import math
