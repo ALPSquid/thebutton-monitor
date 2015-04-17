@@ -4,6 +4,7 @@ A simple library for getting information on the /r/thebutton button.
 Includes a gatttool wrapper for interacting with bluetooth devices.
 
 ### [Example](https://github.com/ALPSquid/thebutton-monitor/blob/master/src/example.py)
+#### [In Action](https://gfycat.com/FrankCorruptJackal)
 
 ### thebutton.py
 A WebSocketApp that automatically updates relevant button data.  
