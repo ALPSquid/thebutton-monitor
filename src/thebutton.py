@@ -76,9 +76,21 @@ class TheButton():
         """
         :return: Flair colour for current button time
         """
+        if self.base_time < 12: return 'e50000'  # red
+        if self.base_time < 22: return 'e59500'  # orange
+        if self.base_time < 32: return 'e5d900'  # yellow
+        if self.base_time < 42: return '02be01'  # green
+        if self.base_time < 52: return '0083c7'  # blue
+        return '820080'  # purple
+
+    @property
+    def simple_colour(self):
+        """ Colours configured for certain lights that work best with simple, bright colours, like the PlayBulb Candle
+        :return: Flair colour for current button time.
+        """
         if self.base_time < 12: return 'ff0000'  # red
         if self.base_time < 22: return 'ff0f00'  # orange
-        if self.base_time < 32: return 'ffff00'  # yellow
+        if self.base_time < 32: return 'ff7700'  # yellow
         if self.base_time < 42: return '00ff00'  # green
         if self.base_time < 52: return '00f0ff'  # blue
         return 'ff00f0'  # purple
