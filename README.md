@@ -3,7 +3,7 @@
 A simple library for querying the /r/thebutton button.  
 Includes a gatttool wrapper for interacting with bluetooth devices.
 
-### [Example](https://github.com/ALPSquid/thebutton-monitor/blob/master/src/example.py)
+### [Bluetooth Example](https://github.com/ALPSquid/thebutton-monitor/blob/master/src/examples/example.py)
 #### [In Action](https://gfycat.com/FrankCorruptJackal)
 
 ### thebutton.py
