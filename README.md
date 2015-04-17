@@ -3,6 +3,11 @@
 A simple library for querying the /r/thebutton button.  
 Includes a gatttool wrapper for interacting with bluetooth devices.
 
+### huebutton.py
+A program that allows you to control your hue lights according to the button timer!
+####[In Action](https://gfycat.com/CheapPopularAustraliankestrel)
+
+
 ### [Example](https://github.com/ALPSquid/thebutton-monitor/blob/master/src/example.py)
 #### [In Action](https://gfycat.com/FrankCorruptJackal)
 
