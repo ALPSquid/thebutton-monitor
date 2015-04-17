@@ -73,15 +73,15 @@ class TheButton():
 
     @property
     def colour(self):
-        """ Colours configured for PlayBulb Candle
+        """
         :return: Flair colour for current button time
         """
-        if self.base_time < 12: return '20ff0000'  # red
-        if self.base_time < 22: return 'f0ff0f00'  # orange
-        if self.base_time < 32: return 'ffffff00'  # yellow
-        if self.base_time < 42: return '0000ff00'  # green
-        if self.base_time < 52: return '0000f0ff'  # blue
-        return '00ff00f0'  # purple
+        if self.base_time < 12: return 'ff0000'  # red
+        if self.base_time < 22: return 'ff0f00'  # orange
+        if self.base_time < 32: return 'ffff00'  # yellow
+        if self.base_time < 42: return '00ff00'  # green
+        if self.base_time < 52: return '00f0ff'  # blue
+        return 'ff00f0'  # purple
 
     def on_message(self, wsa, message):
         """ WebSocketApp message callback

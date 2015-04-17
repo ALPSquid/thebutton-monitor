@@ -12,6 +12,7 @@ class ButtonApp():
 
         self.last_lowest = 60.0
 
+
     def run(self):
         # The WebSocketApp loop runs in it's own thread,
         # so make sure you call TheButton.close() when you're done with it!
@@ -19,7 +20,8 @@ class ButtonApp():
 
         try:
             while True:
-                colour = self.the_button.colour  # Colours are configured for the PlayBulb candle, but they're easy to change
+                # Colours are in hexadecimal but the PlayBulb Candle required saturation in front of the value
+                colour = '00'+self.the_button.colour
                 # Set the PlayBulb to the current flair colour
                 # Resource: Protocols for PlayBulb products (https://github.com/Phhere/Playbulb)
                 self.playbulb.write('0016', colour)
