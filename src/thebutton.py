@@ -83,6 +83,18 @@ class TheButton():
         return '820080'  # purple
 
     @property
+    def hue_colour(self):
+        """ Colors configured for Hue Bulb
+        :return: Hue flair colour for current button time
+        """
+        if self.base_time < 12: return [0.65, 0.3]  # red
+        if self.base_time < 22: return [0.6, 0.4]  # orange
+        if self.base_time < 32: return [0.5, 0.5]  # yellow
+        if self.base_time < 42: return [0.2, 0.7]  # green
+        if self.base_time < 52: return [0.17, 0.04]  # blue
+        return [0.3, 0.1]  # purple
+    
+    @property
     def simple_colour(self):
         """ Colours configured for certain lights that work best with simple, bright colours, like the PlayBulb Candle
         :return: Flair colour for current button time.
