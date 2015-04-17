@@ -45,8 +45,10 @@ class connect():
             self.conn.sendline('connect')
             try:
                 self.conn.expect(r'Connection successful', timeout=10)
+                print("Reconnected to device: " + self.address)
             except pexpect.TIMEOUT:
-                raise Exception("Unable to connect to device")
+                # Continue and try to reconnect next time
+                print("Lost connection to device: " + self.address)
             return True
         except pexpect.TIMEOUT:
             # No need to reconnect
