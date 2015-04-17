@@ -6,7 +6,6 @@ Based on https://github.com/mfontanini/thebutton
 Part of https://github.com/ALPSquid/thebutton-monitor
 """
 
-from enum import Enum
 import websocket
 import threading
 import re
@@ -16,7 +15,7 @@ import time
 import math
 
 
-class Keys(Enum):
+class Keys():
     """ Dictionary keys used by /r/thebutton websocket response
     Sample: {"type": "ticking", "payload": {"participants_text": "756,790", "tick_mac": "fca61e446b32ba0c2851d564b413d7c953e92690", "seconds_left": 36.0, "now_str": "2015-04-16-11-33-26"}}
     """
@@ -73,15 +72,15 @@ class TheButton():
 
     @property
     def colour(self):
-        """ Colours configured for PlayBulb Candle
+        """
         :return: Flair colour for current button time
         """
-        if self.base_time < 12: return '20ff0000'  # red
-        if self.base_time < 22: return 'f0ff0f00'  # orange
-        if self.base_time < 32: return 'ffffff00'  # yellow
-        if self.base_time < 42: return '0000ff00'  # green
-        if self.base_time < 52: return '0000f0ff'  # blue
-        return '00ff00f0'  # purple
+        if self.base_time < 12: return 'e50000'  # red
+        if self.base_time < 22: return 'e59500'  # orange
+        if self.base_time < 32: return 'e5d900'  # yellow
+        if self.base_time < 42: return '02be01'  # green
+        if self.base_time < 52: return '0083c7'  # blue
+        return '820080'  # purple
 
     @property
     def hue_color(self):
@@ -94,7 +93,18 @@ class TheButton():
         if self.base_time < 42: return [0.2, 0.7]  # green
         if self.base_time < 52: return [0.17, 0.04]  # blue
         return [0.3, 0.1]  # purple
-
+    
+    @property
+    def simple_colour(self):
+        """ Colours configured for certain lights that work best with simple, bright colours, like the PlayBulb Candle
+        :return: Flair colour for current button time.
+        """
+        if self.base_time < 12: return 'ff0000'  # red
+        if self.base_time < 22: return 'ff0f00'  # orange
+        if self.base_time < 32: return 'ff7700'  # yellow
+        if self.base_time < 42: return '00ff00'  # green
+        if self.base_time < 52: return '00f0ff'  # blue
+        return 'ff00f0'  # purple
 
     def on_message(self, wsa, message):
         """ WebSocketApp message callback
@@ -103,20 +113,20 @@ class TheButton():
         :param wsa: WebSocketApp instance
         :param message: message from socket
         """
-        payload = json.loads(message)[Keys.PAYLOAD.value]
+        payload = json.loads(message)[Keys.PAYLOAD]
         # Update button time
         self.last_time = self.base_time
-        self.base_time = payload[Keys.SECONDS.value]
+        self.base_time = payload[Keys.SECONDS]
         if self.base_time == 60.0 and self.last_time < self.lowest_time:
             self.lowest_time = self.last_time
 
         # Update participants
-        participants = payload[Keys.PARTICIPANTS.value]
+        participants = payload[Keys.PARTICIPANTS]
         if self.participants != participants:
             self.participants = participants
 
         # Update timestamp
-        self.last_timestamp = payload[Keys.TIME.value]
+        self.last_timestamp = payload[Keys.TIME]
 
         # Used to calculate button milliseconds
         self._last_tick = time.perf_counter()
