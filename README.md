@@ -6,7 +6,7 @@ Includes a gatttool wrapper for interacting with bluetooth devices.
 ### [Bluetooth Example](https://github.com/ALPSquid/thebutton-monitor/blob/master/src/examples/example.py)
 #### [In Action](https://gfycat.com/FrankCorruptJackal)
 
-### [Bluetooth Example](https://github.com/ALPSquid/thebutton-monitor/blob/master/src/examples/hue_example.py)
+### [Philips Hue Example](https://github.com/ALPSquid/thebutton-monitor/blob/master/src/examples/hue_example.py)
 Example that allows you to control your hue lights according to the button timer!
 ####[In Action](https://gfycat.com/CheapPopularAustraliankestrel)
 
