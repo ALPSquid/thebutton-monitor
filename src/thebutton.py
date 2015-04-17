@@ -6,7 +6,6 @@ Based on https://github.com/mfontanini/thebutton
 Part of https://github.com/ALPSquid/thebutton-monitor
 """
 
-from enum import Enum
 import websocket
 import threading
 import re
@@ -16,7 +15,7 @@ import time
 import math
 
 
-class Keys(Enum):
+class Keys():
     """ Dictionary keys used by /r/thebutton websocket response
     Sample: {"type": "ticking", "payload": {"participants_text": "756,790", "tick_mac": "fca61e446b32ba0c2851d564b413d7c953e92690", "seconds_left": 36.0, "now_str": "2015-04-16-11-33-26"}}
     """
@@ -102,20 +101,20 @@ class TheButton():
         :param wsa: WebSocketApp instance
         :param message: message from socket
         """
-        payload = json.loads(message)[Keys.PAYLOAD.value]
+        payload = json.loads(message)[Keys.PAYLOAD]
         # Update button time
         self.last_time = self.base_time
-        self.base_time = payload[Keys.SECONDS.value]
+        self.base_time = payload[Keys.SECONDS]
         if self.base_time == 60.0 and self.last_time < self.lowest_time:
             self.lowest_time = self.last_time
 
         # Update participants
-        participants = payload[Keys.PARTICIPANTS.value]
+        participants = payload[Keys.PARTICIPANTS]
         if self.participants != participants:
             self.participants = participants
 
         # Update timestamp
-        self.last_timestamp = payload[Keys.TIME.value]
+        self.last_timestamp = payload[Keys.TIME]
 
         # Used to calculate button milliseconds
         self._last_tick = time.perf_counter()
