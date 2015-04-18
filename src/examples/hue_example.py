@@ -5,8 +5,7 @@ from phue import Bridge
 import math
 
 
-bridgeIP = 'YOUR BRIDGE IP ADDRESS'
-bridge = Bridge(bridgeIP)
+b = Bridge('BRIDGE IP')
 #If running for the first time, press button on bridge and run with b.connect() uncommented
 b.connect()
 
@@ -64,5 +63,5 @@ class HueButton():
 
 
 if __name__ == "__main__":
-    huebutton = HueButton(bridge, lights)
+    huebutton = HueButton(lights)
     huebutton.run()
