@@ -106,6 +106,18 @@ class TheButton():
         if self.base_time < 52: return '00f0ff'  # blue
         return 'ff00f0'  # purple
 
+    @property
+    def ascii_colour(self):
+        """ Returns ASCII codes indicating the color rather than actual values.
+        For use with devices listening on a serial interface, like an arduino.
+        """
+        if self.base_time < 12: return 'R'  # red
+        if self.base_time < 22: return 'O'  # orange
+        if self.base_time < 32: return 'Y'  # yellow
+        if self.base_time < 42: return 'G'  # green
+        if self.base_time < 52: return 'B'  # blue
+        return 'P'  # purple
+
     def on_message(self, wsa, message):
         """ WebSocketApp message callback
         Update button attributes: base_time, lowest_time, participants, last_timestamp
