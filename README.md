@@ -6,6 +6,9 @@ Includes a gatttool wrapper for interacting with bluetooth devices.
 ### [Bluetooth Example](https://github.com/ALPSquid/thebutton-monitor/blob/master/src/examples/bluetooth_example.py)
 #### [In Action](https://gfycat.com/FrankCorruptJackal)
 
+### [Bluetooth Example 2](https://github.com/ALPSquid/thebutton-monitor/blob/master/src/examples/bluetooth_libless_example.py)
+(Uses non-interactive gatt session without the gatt library, thanks to [samph](https://github.com/samph/thebutton-monitor))
+
 ### [Philips Hue Example](https://github.com/ALPSquid/thebutton-monitor/blob/master/src/examples/hue_example.py)  
 (Thanks to [kaloncheung124](https://github.com/kaloncheung124/thebutton-monitor))
 ####[In Action](https://gfycat.com/CheapPopularAustraliankestrel)
