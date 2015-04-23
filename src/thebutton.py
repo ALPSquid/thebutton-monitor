@@ -93,7 +93,19 @@ class TheButton():
         if self.base_time < 42: return [0.2, 0.7]  # green
         if self.base_time < 52: return [0.17, 0.04]  # blue
         return [0.3, 0.1]  # purple
-    
+
+        @property
+    def limitless_colour(self):
+        """ Colors configured for Limitless LED RGBW Bulns
+        :return: Colour for current button time
+        """
+        if self.base_time < 12: return 'red'  # red
+        if self.base_time < 22: return 'orange'  # orange
+        if self.base_time < 32: return 'yellow'  # yellow
+        if self.base_time < 42: return 'green'  # green
+        if self.base_time < 52: return 'royal_blue'  # blue
+        return 'lilac'  # purple
+
     @property
     def simple_colour(self):
         """ Colours configured for certain lights that work best with simple, bright colours, like the PlayBulb Candle
