@@ -94,7 +94,7 @@ class TheButton():
         if self.base_time < 52: return [0.17, 0.04]  # blue
         return [0.3, 0.1]  # purple
 
-        @property
+    @property
     def limitless_colour(self):
         """ Colors configured for Limitless LED RGBW Bulns
         :return: Colour for current button time
